@@ -4,9 +4,13 @@ import TechList from '~/components/TechList';
 
 describe('TechList Component', () => {
     it('should be able to add new tech', () => {
-        const {getByText, getByTestId} = render(<TechList/>);
-        fireEvent.click(getByText('Adicionar'));
+        const {getByText, getByTestId, debug, getByLabelText} = render(<TechList/>);
+        
+        fireEvent.change(getByLabelText('Tech'),{target: {value: 'Node.js'}})
+        fireEvent.submit(getByTestId('tech-form'));
+        
 
-        expect(getByTestId('TechList')).toContainElement(getByText('Node.js'));
+        expect(getByTestId('tech-list')).toContainElement(getByText('Node.js'));
+        expect(getByLabelText('Tech')).toHaveValue('')
     });
 });

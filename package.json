@@ -15,11 +15,14 @@
     "eject": "react-scripts eject"
   },
   "jest": {
+    "roots": [
+      "<rootDir>/__tests__/"
+    ],
     "testMatch": [
       "**/__tests__/**/*.test.js"
     ],
     "setupFilesAfterEnv": [
-      "@testing-library/react/dont-cleanup-after-each",
+      "@testing-library/react",
       "@testing-library/jest-dom/extend-expect"
     ],
     "moduleNameMapper": {
